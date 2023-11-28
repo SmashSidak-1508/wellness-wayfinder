@@ -1,6 +1,6 @@
 import React from "react";
 import InformationCard from "./InformationCard";
-import { faHeartPulse, faTruckMedical, faTooth } from "@fortawesome/free-solid-svg-icons";
+import { faHeartPulse,  faTooth , faD } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Info.css";
 
 function Info() {
@@ -20,13 +20,9 @@ function Info() {
 
       <div className="info-cards-content">
         <InformationCard
-          title="Emergency Care"
-          description="Our Emergency Care service is designed to be your reliable support
-            in critical situations. Whether it's a sudden illness, injury, or
-            any medical concern that requires immediate attention, our team of
-            dedicated healthcare professionals is available 24/7 to provide
-            prompt and efficient care."
-          icon={faTruckMedical}
+          title="Personalised Diet Recommendation"
+          description="Our Personalized Diet Recommendation service crafts customized meal plans based on individual health data, ensuring tailored nutrition advice for optimal well-being.This service promotes informed dietary choices, contributing to holistic well-being and encouraging users to actively engage in their health journey. It's a transformative approach to nutrition that aligns with our commitment to proactive healthcare."
+          icon={faD}
         />
 
         <InformationCard
@@ -39,6 +35,22 @@ function Info() {
           icon={faHeartPulse}
         />
 
+        <InformationCard
+          title="AI-Powered Virtual Wellness Navigators"
+          description="Our AI-Powered Virtual Wellness Navigators revolutionize personalized health guidance. These intelligent navigators leverage advanced artificial intelligence to provide precise and personalized medication recommendations.Integrating with user health profiles, these virtual guides empower individuals to navigate their wellness journey with tailored insights."
+          icon={faTooth}
+        />
+        
+      </div>
+      <div class= "info-cards-content">
+      <InformationCard
+          title="Dental Care"
+          description="Smile with confidence as our Dental Care services cater to all your
+            oral health needs. Our skilled dentists provide a wide range of
+            treatments, from routine check-ups and cleanings to cosmetic
+            procedures and restorative treatments."
+          icon={faTooth}
+        />
         <InformationCard
           title="Dental Care"
           description="Smile with confidence as our Dental Care services cater to all your

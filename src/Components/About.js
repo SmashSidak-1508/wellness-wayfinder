@@ -15,18 +15,14 @@ function About() {
           <span>About Us</span>
         </h3>
         <p className="about-description">
-          Welcome to Health Plus, your trusted partner for accessible and
-          personalized healthcare. Our expert doctors offer online consultations
-          and specialized services, prioritizing your well-being. Join us on
-          this journey towards a healthier you.
+        Welcome to Wellness WayFinder, where we're dedicated to your well-being journey. Our platform provides expert guidance, personalized healthcare, and online consultations to prioritize your health. Join us on the path to a healthier you.
         </p>
 
         <h4 className="about-text-title">Your Solutions</h4>
 
         <SolutionStep
-          title="Choose a Specialist"
-          description="Find your perfect specialist and book with ease at Health Plus. Expert doctors prioritize your health, offering tailored care."
-        />
+          title="Personalised Wellness Path"
+          description="Discover your ideal wellness path with Wellness WayFinder. Easily connect with specialized experts who prioritize your health, providing personalized care tailored to your unique needs. Your journey to personalized well-being starts here"/>
 
         <SolutionStep
           title="Make a Schedule"
@@ -35,7 +31,7 @@ function About() {
 
         <SolutionStep
           title="Get Your Solutions"
-          description="Our experienced doctors and specialists are here to provide expert advice and personalized treatment plans, helping you achieve your best possible health."
+          description="Our experienced experts and chat support are here to provide expert advice and personalized plans, helping you achieve your best possible health."
         />
       </div>
     </div>

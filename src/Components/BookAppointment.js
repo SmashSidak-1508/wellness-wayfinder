@@ -23,20 +23,17 @@ function BookAppointment() {
 
       <div className="ba-text-content">
         <h3 className="ba-title">
-          <span>Why Choose Health</span>
+          <span>Why Choose Wellness WayFinder</span>
         </h3>
         <p className="ba-description">
-          Discover the reasons to choose Health Plus for your healthcare needs.
-          Experience expert care, convenience, and personalized solutions,
-          making your well-being our top priority. Join us on a journey to
-          better health and a happier life.
+        Embark on a transformative wellness journey with Wellness WayFinder—a realm where expert care meets personalized solutions, placing your well-being at the forefront. Choose us for an adventure toward better health, where convenience and tailored approaches redefine your path to a happier and more vibrant life.
         </p>
 
         <p className="ba-checks ba-check-first">
-          <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> Best Professional Doctors
+          <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> Best Professional Experts
         </p>
         <p className="ba-checks">
-          <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> Emergency Care
+          <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> Personalised Health Care
         </p>
         <p className="ba-checks">
           <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> 24/7 Support Live Chat
@@ -50,7 +47,7 @@ function BookAppointment() {
           type="button"
           onClick={handleBookAppointmentClick}
         >
-          <FontAwesomeIcon icon={faCalendarCheck} /> Book Appointment
+          <FontAwesomeIcon icon={faCalendarCheck} />Make Your Profile Now!!
         </button>
       </div>
     </div>

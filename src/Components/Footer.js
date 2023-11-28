@@ -10,12 +10,10 @@ function Footer() {
         <div className="ft-info">
           <div className="ft-info-p1">
             <p className="ft-title">
-              Health <span className="ft-sign">+</span>
+              Wellness WayFinder <span className="ft-sign">+</span>
             </p>
             <p className="ft-description">
-              Talk to online doctors and get medical advice, online
-              prescriptions, refills and medical notes within minutes. On-demand
-              healthcare services at your fingertips.
+            Discover swift and personalized healthcare with Wellness WayFinder. Instantly connect with expert online doctors for medical advice, prescriptions, refills, and medical notes. Your on-demand healthcare solution, ensuring well-being at your fingertips.
             </p>
           </div>
 
@@ -26,7 +24,7 @@ function Footer() {
           <p className="ft-list-title">Services</p>
           <ul className="ft-list-items">
             <li>
-              <a href="#services">Emergency Care</a>
+              <a href="#services">Personalised Healthcare</a>
             </li>
             <li>
               <a href="#services">Heart Disease</a>
