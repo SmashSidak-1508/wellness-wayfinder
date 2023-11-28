@@ -1,6 +1,6 @@
-# Health Plus
+# Wellness WayFinder
 
-Welcome to the Health Plus project repository! This is a React-based website aimed at providing accessible and personalized healthcare services to users. The website allows users to connect with expert doctors, schedule appointments, and receive expert medical advice.
+Welcome to the Wellness WayFinder project repository! This is a React-based website aimed at providing accessible and personalized healthcare services to users. The website allows users to connect with expert doctors, schedule appointments, and receive expert medical advice.
 
 ## Project Overview
 
@@ -63,7 +63,7 @@ The website is deployed using GitHub Pages and can be accessed at [https://alkai
 
 To run the project locally:
 
-1. Clone this repository: `git clone https://github.com/Alkaison/Health-Plus.git`
+1. Clone this repository: `git clone https://github.com/SmashSidak-1508/wellness-wayfinder.git`
 2. Navigate to the project directory: `cd Health-Plus`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`

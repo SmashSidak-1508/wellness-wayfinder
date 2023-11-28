@@ -9,8 +9,8 @@ import Appointment from "./Pages/Appointment";
 function App() {
   return (
     <div className="App">
-      <Router basename="/Health-Plus">
-        <Routes>
+      <Router basename="/wellness-wayfinder">
+      <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/legal" element={<Legal />} />
           <Route path="/appointment" element={<Appointment />} />
