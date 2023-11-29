@@ -20,13 +20,13 @@ function Info() {
 
       <div className="info-cards-content">
         <InformationCard
-          title="Personalised Diet Recommendation"
+          title="Gym And Excercise Recommendation"
           description="Our Personalized Diet Recommendation service crafts customized meal plans based on individual health data, ensuring tailored nutrition advice for optimal well-being.This service promotes informed dietary choices, contributing to holistic well-being and encouraging users to actively engage in their health journey. It's a transformative approach to nutrition that aligns with our commitment to proactive healthcare."
           icon={faD}
         />
 
         <InformationCard
-          title="Heart Disease"
+          title="Nutrition And Diet Rececommendation"
           description="Our team of experienced cardiologists and medical experts use
             state-of-the-art technology to assess your cardiovascular health and
             design personalized treatment plans. From comprehensive screenings
@@ -36,30 +36,13 @@ function Info() {
         />
 
         <InformationCard
-          title="AI-Powered Virtual Wellness Navigators"
+          title="Medicine Advisior"
           description="Our AI-Powered Virtual Wellness Navigators revolutionize personalized health guidance. These intelligent navigators leverage advanced artificial intelligence to provide precise and personalized medication recommendations.Integrating with user health profiles, these virtual guides empower individuals to navigate their wellness journey with tailored insights."
           icon={faTooth}
         />
         
       </div>
-      <div class= "info-cards-content">
-      <InformationCard
-          title="Dental Care"
-          description="Smile with confidence as our Dental Care services cater to all your
-            oral health needs. Our skilled dentists provide a wide range of
-            treatments, from routine check-ups and cleanings to cosmetic
-            procedures and restorative treatments."
-          icon={faTooth}
-        />
-        <InformationCard
-          title="Dental Care"
-          description="Smile with confidence as our Dental Care services cater to all your
-            oral health needs. Our skilled dentists provide a wide range of
-            treatments, from routine check-ups and cleanings to cosmetic
-            procedures and restorative treatments."
-          icon={faTooth}
-        />
-      </div>
+     
     </div>
   );
 }
