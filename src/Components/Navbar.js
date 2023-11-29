@@ -43,9 +43,19 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <a href="#services" className="navbar-links">
-            Services
-          </a>
+        <Link to="/Gym" className="navbar-links">
+            Gym&Exer
+          </Link>
+        </li>
+        <li>
+        <Link to="/Nutrition" className="navbar-links">
+            Nutrition
+          </Link>
+        </li>
+        <li>
+        <Link to="/Medicine" className="navbar-links">
+            Medicine
+          </Link>
         </li>
         <li>
           <a href="#about" className="navbar-links">
@@ -57,11 +67,7 @@ function Navbar() {
             Reviews
           </a>
         </li>
-        <li>
-          <a href="#doctors" className="navbar-links">
-            Experts
-          </a>
-        </li>
+        
       </ul>
 
       <button
