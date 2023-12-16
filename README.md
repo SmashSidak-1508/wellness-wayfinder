@@ -4,7 +4,5 @@ Welcome to the Wellness WayFinder project repository! This is a React-based webs
 
 ## Project Overview
 
-- **Website**: [Health Plus](https://alkaison.github.io/Health-Plus/ "Health Plus")
 - **Framework**: React.js
-- **Deployment**: GitHub Pages
 - **Libraries**: React-Toastify, React Router DOM, FontAwesomeIcon
