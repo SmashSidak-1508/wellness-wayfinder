@@ -47,11 +47,7 @@ function Navbar() {
             Gym&Exer
           </Link>
         </li>
-        <li>
-        <Link to="/Nutrition" className="navbar-links">
-            Nutrition
-          </Link>
-        </li>
+       
         <li>
         <Link to="/Medicine" className="navbar-links">
             Medicine
@@ -76,7 +72,7 @@ function Navbar() {
         disabled={isButtonDisabled}
         onClick={handleChatBtnClick}
       >
-        <FontAwesomeIcon icon={faCommentDots} /> Live Chat
+        <FontAwesomeIcon icon={faCommentDots} /> Login
       </button>
 
       {/* Mobile */}
