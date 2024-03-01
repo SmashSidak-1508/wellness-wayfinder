@@ -60,7 +60,7 @@ function Navbar() {
         </li>
         <li>
           <Link to="/Pages/Reviews" className="navbar-links">
-            Reviewss
+            Reviews
           </Link>
         </li>
 
