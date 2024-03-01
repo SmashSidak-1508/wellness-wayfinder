@@ -54,12 +54,12 @@ function Navbar() {
           </Link>
         </li>
         <li>
-          <Link to="/Pages/About" className="navbar-links">
+          <Link to="/About" className="navbar-links">
             About
           </Link>
         </li>
         <li>
-          <Link to="/Pages/Reviews" className="navbar-links">
+          <Link to="/Reviews" className="navbar-links">
             Reviews
           </Link>
         </li>
@@ -72,7 +72,9 @@ function Navbar() {
         disabled={isButtonDisabled}
         onClick={handleChatBtnClick}
       >
-        <FontAwesomeIcon icon={faCommentDots} /> Login
+        <FontAwesomeIcon icon={faCommentDots} /> <Link to="/login" className="navbar-links">
+            Login 
+          </Link>
       </button>
 
       {/* Mobile */}

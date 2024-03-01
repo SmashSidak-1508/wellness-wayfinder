@@ -8,6 +8,9 @@ import Appointment from "./Pages/Appointment";
 import Gym from "./Pages/Gym";
 import Nutrition from "./Pages/Nutrition";
 import Medicine from "./Pages/Medicine";
+import About from "./Pages/About";
+import Reviews from "./Pages/Reviews";
+import Login from "./Pages/Login";
 
 function App() {
   return (
@@ -17,7 +20,10 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/Gym" element={<Gym />} />
           <Route path="/medicine" element={<Medicine/>} />
-          <Route path="/legal" element={<Legal />} />
+          <Route path="/about" element={<About/>} />
+          <Route path="/reviews" element={<Reviews/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/legal" element={<Legal/>} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
