@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarCheck, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate  } from "react-router-dom";
 import "../Styles/Hero.css";
-
+import { Link } from "react-router-dom";
+import SignUp from "../Pages/SignUp";
 function Hero() {
   const navigate = useNavigate();
   const [goUp, setGoUp] = useState(false);
@@ -44,13 +45,12 @@ function Hero() {
           Navigate your well-being with personalized recommendations. Connect
             with experts and explore a journey to holistic wellness.
           </p>
-          <button
-            className="text-appointment-btn"
-            type="button"
-            onClick={handleBookAppointmentClick}
-          >
-            <FontAwesomeIcon icon={faCalendarCheck} /> Make your Profile
-          </button>
+          <button className="text-appointment-btn" onClick={SignUp}>
+  <Link to="/SignUp">
+    <FontAwesomeIcon icon={faCalendarCheck} /> SignUp your profile
+  </Link>
+</button>
+
           <div className="text-stats">
             <div className="text-stats-container">
               <p>14k+</p>

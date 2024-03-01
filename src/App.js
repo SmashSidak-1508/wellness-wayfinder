@@ -11,6 +11,7 @@ import Medicine from "./Pages/Medicine";
 import About from "./Pages/About";
 import Reviews from "./Pages/Reviews";
 import Login from "./Pages/Login";
+import SignUp from "./Pages/SignUp";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/about" element={<About/>} />
           <Route path="/reviews" element={<Reviews/>} />
           <Route path="/login" element={<Login/>} />
+          <Route path="/signup" element={<SignUp/>} />
           <Route path="/legal" element={<Legal/>} />
           <Route path="/appointment" element={<Appointment />} />
           <Route path="*" element={<NotFound />} />

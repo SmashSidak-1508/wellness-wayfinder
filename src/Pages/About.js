@@ -2,9 +2,13 @@ import React from "react";
 import Doctor from "../Assets/doctor-group.png";
 import SolutionStep from "../Components/SolutionStep"
 import "../Styles/About.css";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 function About() {
   return (
+    <>
+    <Navbar/>
     <div className="about-section" id="about">
       <div className="about-image-content">
         <img src={Doctor} alt="Doctor Group" className="about-image1" />
@@ -33,8 +37,11 @@ function About() {
           title="Get Your Solutions"
           description="Our experienced experts and chat support are here to provide expert advice and personalized plans, helping you achieve your best possible health."
         />
+        
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 

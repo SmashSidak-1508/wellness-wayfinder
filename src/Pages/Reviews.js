@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { customerReviews } from "../Scripts/reviews";
 import "../Styles/Reviews.css";
+import Navbar from "../Components/Navbar";
+import Footer from "../Components/Footer";
 
 function Reviews() {
   let rMessage, rName, rLocation;
@@ -31,6 +33,8 @@ function Reviews() {
   handleReviewsUpdation();
 
   return (
+    <>
+    <Navbar/>
     <div className="review-section" id="reviews">
       <div className="rw-text-content">
         <p className="rw-text-title">
@@ -70,6 +74,8 @@ function Reviews() {
         </div>
       </div>
     </div>
+    <Footer/>
+    </>
   );
 }
 
