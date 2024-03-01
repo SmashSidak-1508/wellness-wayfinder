@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../Styles/AppointmentForm.css";
@@ -12,10 +11,10 @@ function AppointmentForm() {
   const [patientName, setPatientName] = useState("");
   const [patientNumber, setPatientNumber] = useState("");
   const [patientGender, setPatientGender] = useState("default");
-  const [appointmentTime, setAppointmentTime] = useState("");
-  const [preferredMode, setPreferredMode] = useState("default");
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [formErrors, setFormErrors] = useState({});
+  const [height, setHeight] = useState(""); 
+  const [weight, setWeight] = useState(""); 
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -37,18 +36,13 @@ function AppointmentForm() {
     if (patientGender === "default") {
       errors.patientGender = "Please select patient gender";
     }
-    if (!appointmentTime) {
-      errors.appointmentTime = "Appointment time is required";
-    } else {
-      const selectedTime = new Date(appointmentTime).getTime();
-      const currentTime = new Date().getTime();
-      if (selectedTime <= currentTime) {
-        errors.appointmentTime = "Please select a future appointment time";
-      }
-    }
-    if (preferredMode === "default") {
-      errors.preferredMode = "Please select preferred mode";
-    }
+    if (!height) { // Check for height
+      errors.height = "Height is required";
+    } 
+    if (!weight) { // Check for weight
+      errors.weight = "Height is required";
+    } 
+    
 
     if (Object.keys(errors).length > 0) {
       setFormErrors(errors);
@@ -59,8 +53,7 @@ function AppointmentForm() {
     setPatientName("");
     setPatientNumber("");
     setPatientGender("default");
-    setAppointmentTime("");
-    setPreferredMode("default");
+    setHeight("");
     setFormErrors({});
 
     toast.success("Appointment Scheduled !", {
@@ -125,34 +118,30 @@ function AppointmentForm() {
 
           <br />
           <label>
-            Preferred Appointment Time:
+            Height:
             <input
-              type="datetime-local"
-              value={appointmentTime}
-              onChange={(e) => setAppointmentTime(e.target.value)}
+              type="text"
+              value={height}
+              onChange={(e) => setHeight(e.target.value)}
               required
             />
-            {formErrors.appointmentTime && <p className="error-message">{formErrors.appointmentTime}</p>}
+            {formErrors.height && <p className="error-message">{formErrors.height}</p>}
           </label>
 
           <br />
           <label>
-            Preferred Mode:
-            <select
-              value={preferredMode}
-              onChange={(e) => setPreferredMode(e.target.value)}
+            Weight:
+            <input
+              value={weight}
+              onChange={(e) => setWeight(e.target.value)}
               required
-            >
-              <option value="default">Select</option>
-              <option value="voice">Voice Call</option>
-              <option value="video">Video Call</option>
-            </select>
-            {formErrors.preferredMode && <p className="error-message">{formErrors.preferredMode}</p>}
+            />
+            {formErrors.weight && <p className="error-message">{formErrors.weight}</p>}
           </label>
 
           <br />
           <button type="submit" className="text-appointment-btn">
-            Confirm Appointment
+            Submit
           </button>
 
           <p className="success-message" style={{display: isSubmitted ? "block" : "none"}}>Appointment details has been sent to the patients phone number via SMS.</p>
@@ -169,4 +158,3 @@ function AppointmentForm() {
 }
 
 export default AppointmentForm;
-
