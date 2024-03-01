@@ -43,27 +43,27 @@ function Navbar() {
           </Link>
         </li>
         <li>
-        <Link to="/Gym" className="navbar-links">
+          <Link to="/Gym" className="navbar-links">
             Gym&Exer
           </Link>
         </li>
-       
+
         <li>
-        <Link to="/Medicine" className="navbar-links">
+          <Link to="/Medicine" className="navbar-links">
             Medicine
           </Link>
         </li>
         <li>
-          <a href="#about" className="navbar-links">
+          <Link to="/Pages/About" className="navbar-links">
             About
-          </a>
+          </Link>
         </li>
         <li>
-          <a href="#reviews" className="navbar-links">
+          <Link to="/Pages/Reviews" className="navbar-links">
             Reviews
-          </a>
+          </Link>
         </li>
-        
+
       </ul>
 
       <button
@@ -87,30 +87,26 @@ function Navbar() {
               Home
             </Link>
           </li>
+
           <li>
-            <a onClick={openNav} href="#services">
-              Services
-            </a>
+            <Link onClick={openNav} to="/Gym">
+              Gym&Exer
+            </Link>
           </li>
           <li>
-            <a onClick={openNav} href="#about">
+            <Link onClick={openNav} to="/Medicine">
+              Medicine
+            </Link>
+          </li>
+          <li>
+            <Link onClick={openNav} to="/About">
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a onClick={openNav} href="#reviews">
+            <Link onClick={openNav} to="/Reviews">
               Reviews
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#doctors">
-              Doctors
-            </a>
-          </li>
-          <li>
-            <a onClick={openNav} href="#contact">
-              Contact
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
