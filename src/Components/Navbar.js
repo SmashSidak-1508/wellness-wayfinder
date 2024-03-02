@@ -77,7 +77,7 @@ function Navbar() {
         disabled={isButtonDisabled}
         onClick={handleChatBtnClick}
       >
-        <FontAwesomeIcon icon={faCommentDots} /> <Link to="/login" className="navbar-links">
+         <Link to="/login" className="navbar-links">
             Login 
           </Link>
       </button>
