@@ -14,9 +14,6 @@ function Home() {
       <Navbar />
       <Hero />
       <Info />
-      <About />
-      <BookAppointment />
-      <Reviews />
       <Footer />
     </div>
   );

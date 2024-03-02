@@ -3,8 +3,7 @@ import Doctors from '../Components/Doctors'
 import Footer from '../Components/Footer'
 import Chatbot from '../Components/Chabot'
 import Navbar from '../Components/Navbar'
-import About from './About'
-import Reviews from './Reviews'
+import BookAppointment from '../Components/BookAppointment'
 
 const Medicine = () => {
   return (
@@ -12,8 +11,7 @@ const Medicine = () => {
     <Navbar/>
     <Doctors/>
     <Chatbot/>
-    <About/>
-    <Reviews/>
+    <BookAppointment/>
     <Footer /></div>
   )
 }
