@@ -62,25 +62,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="ft-list" id="contact">
-          <p className="ft-list-title">Talk To Us</p>
-          <ul className="ft-list-items">
-            <li>
-              <a href="mailto:support@wellnesswayfinder.com">support@wellnesswayfinder.com</a>
-            </li>
-            <li>
-              <a href="mailto:contact@wellnesswayfinder.com">
-                contactt@wellnesswayfinder.com
-              </a>
-            </li>
-            <li>
-              <a href="tel:+91 924 354 5252">+91-9243545252</a>
-            </li>
-            <li>
-              <a href="tel:+91 932 326 6232">+91-9323266232</a>
-            </li>
-          </ul>
-        </div>
+       
       </div>
 
       <div className="ft-copyright">

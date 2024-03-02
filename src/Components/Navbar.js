@@ -63,6 +63,11 @@ function Navbar() {
             Reviews
           </Link>
         </li>
+        <li>
+          <Link to="/dashboard" className="navbar-links">
+            Profile
+          </Link>
+        </li>
 
       </ul>
 
