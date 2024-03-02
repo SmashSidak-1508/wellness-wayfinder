@@ -7,6 +7,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate  } from "react-router-dom";
 import "../Styles/BookAppointment.css";
+import { Link } from "react-router-dom";
+import SignUp from "../Pages/SignUp";
 
 function BookAppointment() {
   const navigate = useNavigate();
@@ -42,13 +44,11 @@ function BookAppointment() {
           <FontAwesomeIcon icon={faCircleCheck} style={{ color: "#1E8FFD" }} /> Enrollment Easy and Quick
         </p>
 
-        <button
-          className="text-appointment-btn"
-          type="button"
-          onClick={handleBookAppointmentClick}
-        >
-          <FontAwesomeIcon icon={faCalendarCheck} />Make Your Profile Now!!
-        </button>
+        <button className="text-appointment-btn" onClick={SignUp}>
+  <Link to="/SignUp">
+    <FontAwesomeIcon icon={faCalendarCheck} /> SignUp your profile
+  </Link>
+</button>
       </div>
     </div>
   );
