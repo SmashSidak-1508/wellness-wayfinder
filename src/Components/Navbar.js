@@ -8,11 +8,17 @@ import {
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
+import Login from "../Pages/Login";
+import Logout from "../Pages/Logout";
 
 function Navbar() {
   const [nav, setNav] = useState(false);
   const [isButtonDisabled, setIsButtonDisabled] = useState(false);
-
+  const [isLogin,setLogin]=useState(<Login/>)
+  const handleLoginClick = () => {
+    setLogin(isLogin === <Login /> ? <Logout /> : <Login />);
+  };
+  
   const openNav = () => {
     setNav(!nav);
   };
@@ -77,7 +83,7 @@ function Navbar() {
         disabled={isButtonDisabled}
         onClick={handleChatBtnClick}
       >
-         <Link to="/login" className="navbar-links">
+         <Link to="/login"  onClick={handleLoginClick} className="navbar-links">
             Login 
           </Link>
       </button>
