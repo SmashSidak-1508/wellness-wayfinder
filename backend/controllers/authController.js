@@ -1,4 +1,5 @@
-const userModel = require("../model/userSchema");
+const userModel = require("../models/userModelLogin");
+const userModel1= require("../models/userModelSignup");
 const emailValidator = require("email-validator");
 const bcrypt = require('bcrypt');
 
@@ -21,7 +22,7 @@ const signup = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const userInfo = new userModel({
+        const userInfo = new userModel1({
             firstName,
             lastName,
             email,
@@ -86,24 +87,7 @@ const signin = async (req, res) => {
     }
 };
 
-const getUser = async (req, res) => {
-    const userId = req.user.id;
-    try {
-        const user = await userModel.findById(userId);
-        return res.status(200).json({
-            success: true,
-            data: user
-        });
-    } catch (e) {
-        return res.status(400).json({
-            success: false,
-            message: e.message
-        });
-    }
-};
-
 module.exports = {
     signup,
-    signin,
-    getUser
+    signin
 };

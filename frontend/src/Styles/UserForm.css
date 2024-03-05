@@ -1,0 +1,186 @@
+
+
+/* Form container */
+.user-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  h1.cent{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  .user-form:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Form title */
+  .user-form h2 {
+    color: #1093d9;
+    margin-bottom: 20px;
+  }
+  
+  /* Form labels and inputs */
+  .user-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .user-form input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  /* Submit button */
+  .user-form button {
+    background-color: #1093d9;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .user-form button:hover {
+    background-color: #00796b;
+  }
+  /* UserForm.css */
+
+/* ... (previous styles) */
+
+/* Dropdown styles */
+.user-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    appearance: none; /* Remove default arrow in Chrome/Safari */
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8"><path fill="%23333" d="M6 8L0 0h12z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    background-size: 10px 8px;
+    cursor: pointer;
+  }
+  
+  .user-form select:hover {
+    border-color: #009688;
+  }
+  
+  .user-form select:focus {
+    outline: none;
+    border-color: #1A8EFD;
+    box-shadow: 0 0 5px rgba(0, 150, 136, 0.5);
+  }
+  
+  /* Style the dropdown options */
+  .user-form select option {
+    background-color: #fff;
+    color: #333;
+  }
+
+/* Slider container */
+.user-form label {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+  }
+  
+  /* Slider label */
+  .user-form label span {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Slider input */
+  .user-form input[type="range"] {
+    width: 100%;
+    margin-top: 5px;
+    -webkit-appearance: none;
+    appearance: none;  /* Remove default styling in WebKit browsers */
+  }
+  
+  .user-form input[type="range"]:focus {
+    outline: none; /* Remove focus outline */
+  }
+  
+  /* Slider track */
+  .user-form input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background-color: #ccc;
+  }
+  
+  /* Slider thumb */
+  .user-form input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default styling in WebKit browsers */
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #1A8EFD;
+    cursor: pointer;
+    margin-top: -6px; /* Center the thumb vertically */
+  }
+
+/* Radio button styles */
+.user-form label {
+    margin-bottom: 15px;
+  }
+  
+  .user-form div {
+    display: flex;
+    align-items: center;
+  }
+  
+  .user-form input[type="radio"] {
+    margin-right: 8px;
+    -webkit-appearance: none;
+    appearance: none;  /* Remove default styling in WebKit browsers */
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    border: 2px solid #1A8EFD;
+    outline: none;
+    cursor: pointer;
+  }
+  
+  .user-form input[type="radio"]:checked {
+    background-color: #1A8EFD;
+  }
+  
+  /* Label styles */
+  .user-form label[for="male"],
+  .user-form label[for="female"] {
+    font-weight: normal;
+    margin-left: 5px;
+    color: #333;
+  }
+  button.sub {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+  }
+  
+
+  .sub:hover {
+    background-color: #45a049;
+  }
+  
+  
+  
