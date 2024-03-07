@@ -1,0 +1,47 @@
+.App {
+  text-align: center;
+  margin: 20px;
+}
+
+.chatBox {
+  border: 1px solid #ccc; /* Use a lighter border color */
+  border-radius: 8px; /* Add some border radius for rounded corners */
+  min-height: 400px;
+  padding: 20px;
+  background-color: #f9f9f9; /* Light gray background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  overflow-y: auto; /* Enable vertical scroll if content exceeds box height */
+}
+
+.inputArea {
+  margin-top: 20px;
+  display: flex; /* Align input and button horizontally */
+  justify-content: center; /* Center align input and button */
+  align-items: center; /* Center align input and button vertically */
+  margin-bottom: 20px;
+}
+
+.inputArea input {
+  width: calc(100% - 100px); /* Adjust input width */
+  padding: 10px; /* Add padding for better spacing */
+  border: 1px solid #ccc; /* Light border */
+  border-radius: 4px; /* Add border radius */
+  margin-right: 10px;
+}
+
+.inputArea button {
+  padding: 10px 20px;
+  background-color: #1A8EFD; /* Blue background color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  border-radius: 4px; /* Add border radius */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+.newline-text {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  margin-bottom: 20px;
+  color: #1A8EFD; /* Change text color to blue */
+}
