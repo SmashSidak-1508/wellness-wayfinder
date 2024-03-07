@@ -1,7 +1,9 @@
-const userModel = require("../models/userModelLogin");
-const userModel1= require("../models/userModelSignup");
+require('dotenv').config()
+const userMode = require("../models/userModel");
 const emailValidator = require("email-validator");
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
 
 const signup = async (req, res) => {
     const { firstName, lastName, email, password } = req.body;
@@ -22,7 +24,7 @@ const signup = async (req, res) => {
         }
 
         const hashedPassword = await bcrypt.hash(password, 10);
-        const userInfo = new userModel1({
+        const userInfo = new userMode({
             firstName,
             lastName,
             email,
@@ -58,7 +60,7 @@ const signin = async (req, res) => {
     }
 
     try {
-        const user = await userModel.findOne({ email }).select("+password");
+        const user = await userMode.findOne({ email }).select("+password");
         if (!user || !(await bcrypt.compare(password, user.password))) {
             return res.status(400).json({
                 success: false,
@@ -66,7 +68,11 @@ const signin = async (req, res) => {
             });
         }
 
-        const token = user.jwtToken();
+        // Generate JWT token using user model method
+        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+            expiresIn: process.env.JWT_EXPIRES_IN
+        });
+
         user.password = undefined;
 
         const cookieOption = {
@@ -86,8 +92,30 @@ const signin = async (req, res) => {
         });
     }
 };
+const logout = (req,res,next)=>{
+    try {
+        const cookieOption = {
+          expires: new Date(), // current expiry date
+          httpOnly: true //  not able to modify  the cookie in client side
+        };
+    
+        // return response with cookie without token
+        res.cookie("token", null, cookieOption);
+        res.status(200).json({
+          success: true,
+          message: "Logged Out"
+        });
+      } catch (error) {
+        res.stats(400).json({
+          success: false,
+          message: error.message
+        });
+      }
+
+  }
 
 module.exports = {
     signup,
-    signin
+    signin,
+    logout
 };
