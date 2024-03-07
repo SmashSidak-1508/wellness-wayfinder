@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
-        minlength:6,
+        minlength:2,
         maxlength: 50,
         trim: true,
         lowercase: true,
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
     },
     lastName: {
         type: String,
-        minlength:6,
+        minlength:2,
         maxlength: 50,
         trim: true,
         lowercase: true,
@@ -33,6 +33,12 @@ const userSchema = new mongoose.Schema({
         required: true
     }
 });
+userSchema.methods.jwtToken = function () {
+    const token = jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+    });
+    return token;
+};
 
 // Create User model
 const User = mongoose.model('User', userSchema);
