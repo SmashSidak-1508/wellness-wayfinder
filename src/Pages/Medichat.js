@@ -80,7 +80,7 @@ function MediChat() {
         <input
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
+          placeholder="Type your message.."
         />
         <button onClick={handleSend}>Send</button>
       </div>
