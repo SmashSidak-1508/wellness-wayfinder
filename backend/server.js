@@ -12,6 +12,9 @@ app.use('/users', userRoute)
 app.get('/', (req, res) => {
     res.send('Api SuccessFull created!');
 });
+app.use(cors({
+    origin: [process.env.CLIENT_URL], 
+    credentials: true }));
 databaseConnect()
 mongoose.connect(process.env.MONGODB_URL)
 .then(()=>{
