@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -13,32 +13,60 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
+import { Axios } from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    allowExtraEmails: false,
+  });
+  const navigate = useNavigate();
+  const handleChange = (event) => {
+    const { name, value, checked, type } = event.target;
+    const newValue = type === 'checkbox' ? checked : value;
+
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: newValue,
+    }));
   };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    // console.log(formData);
+    // You can perform further actions here, such as redirecting to a different page.
+    try {
+      const response = await fetch('http://localhost:5001/users/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      console.log(response);
+      if (response.ok) {
+        setFormData({
+          firstName: '',
+          lastName: '',
+          email: '',
+          password: '',
+          allowExtraEmails: false,
+          
+        });
+        navigate('/login');
+      } 
+      
+    } catch (error) {
+      console.log("registration",error)
+    }
+    // You can perform further actions here, such as sending the data to a server.
+  };
+
+  const defaultTheme = createTheme();
 
   return (
     <ThemeProvider theme={defaultTheme}>
@@ -69,6 +97,8 @@ function SignUp() {
                   id="firstName"
                   label="First Name"
                   autoFocus
+                  value={formData.firstName}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12} sm={6}>
@@ -79,6 +109,8 @@ function SignUp() {
                   label="Last Name"
                   name="lastName"
                   autoComplete="family-name"
+                  value={formData.lastName}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -89,6 +121,8 @@ function SignUp() {
                   label="Email Address"
                   name="email"
                   autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
@@ -100,11 +134,13 @@ function SignUp() {
                   type="password"
                   id="password"
                   autoComplete="new-password"
+                  value={formData.password}
+                  onChange={handleChange}
                 />
               </Grid>
               <Grid item xs={12}>
                 <FormControlLabel
-                  control={<Checkbox value="allowExtraEmails" color="primary" />}
+                  control={<Checkbox name="allowExtraEmails" color="primary" checked={formData.allowExtraEmails} onChange={handleChange} />}
                   label="I want to receive inspiration, marketing promotions and updates via email."
                 />
               </Grid>
@@ -126,7 +162,14 @@ function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
+        <Typography variant="body2" color="text.secondary" align="center" sx={{ mt: 5 }}>
+          {'Copyright '}
+          <Link color="inherit" href="http://localhost:3000/wellness-wayfinder">
+            Your Website
+          </Link>{' '}
+          {new Date().getFullYear()}
+          {'.'}
+        </Typography>
       </Container>
     </ThemeProvider>
   );

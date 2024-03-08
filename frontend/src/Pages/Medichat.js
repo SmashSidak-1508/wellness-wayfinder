@@ -76,6 +76,14 @@ function MediChat() {
 
   return (
     <div className="App" >
+      <div className="inputArea">
+        <input
+          value={message}
+          onChange={(e) => setMessage(e.target.value)}
+          placeholder="Type your message.."
+        />
+        <button onClick={handleSend}>Send</button>
+      </div>
       <div className="chatBox">
         {conversation.map((item, index) => (
           <div key={index}>
@@ -86,14 +94,6 @@ function MediChat() {
             >{item.sender}: </strong> <div className="newline-text">{item.message}</div>
           </div>
         ))}
-      </div>
-      <div className="inputArea">
-        <input
-          value={message}
-          onChange={(e) => setMessage(e.target.value)}
-          placeholder="Type your message..."
-        />
-        <button onClick={handleSend}>Send</button>
       </div>
     </div >
   );
