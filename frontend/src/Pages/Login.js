@@ -33,7 +33,7 @@ function Login() {
     const { email, password } = formData;
 
     try {
-      const response = await fetch('http://localhost:5001/users/signin', {
+      const response = await fetch('/users/signin', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
