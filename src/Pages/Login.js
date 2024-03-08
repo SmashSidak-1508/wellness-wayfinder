@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -12,65 +12,83 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SignUp from './SignUp';
 import { Link as RouterLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
-function Copyright(props) {
-  return (
-    <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
-// TODO remove, this demo shouldn't need to reset the theme.
-
-const defaultTheme = createTheme();
 function Login() {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    const email = data.get('email');
-    const password = data.get('password');
+  const [formData, setFormData] = useState({ email: '', password: '' });
+  const navigate = useNavigate();
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    const { email, password } = formData;
+
+    try {
+      const response = await fetch('http://localhost:5001/users/signin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        // You can perform further actions here, such as redirecting to a different page.
+        console.log('Login successful!');
+        setFormData({ email: '', password: '' });
+        navigate('/');
+      } else {
+        console.error('Login failed.');
+      }
+      console.log(response);
+    }
+       catch (error) {
+        console.log("login",error);
+    }
+
+    // Validations
     if (!email.trim()) {
       alert('Email is required.');
       return;
     }
-  
-    // Check if email is incorrectly formatted
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      alert('Please enter a valid email address.');
-      return;
-    }
-    if (password.length < 8) {
-      alert('Password must be at least 8 characters long.');
-      return;
-    }
-    const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
-    if (!specialCharRegex.test(password)) {
-      alert('Password must contain at least one special character.');
-      return;
-    }
-  
-    // Check if password contains a capital letter
-    const capitalLetterRegex = /[A-Z]/;
-    if (!capitalLetterRegex.test(password)) {
-      alert('Password must contain at least one capital letter.');
-      return;
-    }
 
-    console.log({ email, password });
+    // const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    // if (!emailRegex.test(email)) {
+    //   alert('Please enter a valid email address.');
+    //   return;
+    // }
+
+    // if (password.length < 8) {
+    //   alert('Password must be at least 8 characters long.');
+    //   return;
+    // }
+
+    // const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
+    // if (!specialCharRegex.test(password)) {
+    //   alert('Password must contain at least one special character.');
+    //   return;
+    // }
+
+    // const capitalLetterRegex = /[A-Z]/;
+    // if (!capitalLetterRegex.test(password)) {
+    //   alert('Password must contain at least one capital letter.');
+    //   return;
+    // }
+
+    // console.log({ email, password });
   };
 
   return (
-    <ThemeProvider theme={defaultTheme}>
+    <ThemeProvider theme={createTheme()}>
       <Container component="main" maxWidth="xs">
         <CssBaseline />
         <Box
@@ -97,6 +115,8 @@ function Login() {
               name="email"
               autoComplete="email"
               autoFocus
+              value={formData.email}
+              onChange={handleChange}
             />
             <TextField
               margin="normal"
@@ -107,6 +127,8 @@ function Login() {
               type="password"
               id="password"
               autoComplete="current-password"
+              value={formData.password}
+              onChange={handleChange}
             />
             <FormControlLabel
               control={<Checkbox value="remember" color="primary" />}
@@ -127,16 +149,16 @@ function Login() {
                 </Link>
               </Grid>
               <Grid item>
-                 <Link component={RouterLink} to="/signup" variant="body2">
-                   {"Don't have an account? Sign Up"}
-                 </Link>
+                <Link component={RouterLink} to="/signup" variant="body2">
+                  {"Don't have an account? Sign Up"}
+                </Link>
               </Grid>
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 8, mb: 4 }} />
       </Container>
     </ThemeProvider>
-  );
+  );
 }
-export default Login
+
+export default Login;
