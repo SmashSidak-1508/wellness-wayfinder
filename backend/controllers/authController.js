@@ -83,7 +83,9 @@ const signin = async (req, res) => {
         res.cookie("token", token, cookieOption);
         res.status(200).json({
             success: true,
-            data: user
+            token: token,
+            data: user,
+            id: user._id.toString()
         });
     } catch (e) {
         return res.status(400).json({

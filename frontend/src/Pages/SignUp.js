@@ -13,8 +13,9 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
-import { Axios } from 'axios';
+// import { Axios } from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../store/auth';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -25,6 +26,7 @@ function SignUp() {
     allowExtraEmails: false,
   });
   const navigate = useNavigate();
+  const localstorageinLS = useAuth();
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     const newValue = type === 'checkbox' ? checked : value;
@@ -48,6 +50,9 @@ function SignUp() {
         body: JSON.stringify(formData),
       });
       console.log(response);
+      const res_data = await response.json();
+      console.log(res_data);
+      localstorageinLS(res_data.token)
       if (response.ok) {
         setFormData({
           firstName: '',

@@ -14,10 +14,13 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../store/auth';
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
+
+  const localstorageinLS = useAuth();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -42,6 +45,9 @@ function Login() {
       });
 
       if (response.ok) {
+        const res_data = await response.json();
+        console.log(res_data);
+        localstorageinLS(res_data.token);
         // You can perform further actions here, such as redirecting to a different page.
         console.log('Login successful!');
         setFormData({ email: '', password: '' });
