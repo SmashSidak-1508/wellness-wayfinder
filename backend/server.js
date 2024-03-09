@@ -2,10 +2,12 @@ require('dotenv').config();
 const express = require("express")
 const databaseConnect = require('./config/dbconfig');
 const mongoose= require('mongoose');
+const cookieParser = require('cookie-parser');
 const app = express()
 const PORT = 5001
 const cors = require('cors')
 const userRoute = require('./routes/userRoute');
+app.use(cookieParser())
 app.use(cors())
 app.use(express.json())
 app.use('/users', userRoute)
