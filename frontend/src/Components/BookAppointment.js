@@ -13,9 +13,9 @@ import SignUp from "../Pages/SignUp";
 function BookAppointment() {
   const navigate = useNavigate();
 
-  const handleBookAppointmentClick = () => {
-    navigate("/appointment");
-  };
+  // const handleBookAppointmentClick = () => {
+  //   navigate("/appointment");
+  // };
 
   return (
     <div className="ba-section">

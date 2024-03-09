@@ -1,5 +1,5 @@
 import React from 'react'
-import Doctors from '../Components/Doctors'
+// import Doctors from '../Components/Doctors'
 import Footer from '../Components/Footer'
 import Chatbot from '../Components/Chabot'
 import Navbar from '../Components/Navbar'

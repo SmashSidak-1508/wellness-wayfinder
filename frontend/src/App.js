@@ -6,7 +6,7 @@ import Legal from "./Pages/Legal";
 import NotFound from "./Pages/NotFound";
 import Appointment from "./Pages/Appointment";
 import Gym from "./Pages/Gym";
-import Nutrition from "./Pages/Nutrition";
+// import Nutrition from "./Pages/Nutrition";
 import Medicine from "./Pages/Medicine";
 import About from "./Pages/About";
 import Reviews from "./Pages/Reviews";
