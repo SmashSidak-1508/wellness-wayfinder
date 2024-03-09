@@ -20,7 +20,7 @@ function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
   const navigate = useNavigate();
 
-  const localstorageinLS = useAuth();
+  const {storetokeninLS} = useAuth();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -45,11 +45,12 @@ function Login() {
       });
 
       if (response.ok) {
-        const res_data = await response.json();
-        console.log(res_data);
-        localstorageinLS(res_data.token);
         // You can perform further actions here, such as redirecting to a different page.
         console.log('Login successful!');
+        const res_data = await(response.json());
+        console.log("res from server",res_data);
+        // localStorage.setItem("token",res_data.token);
+        storetokeninLS(res_data.token);
         setFormData({ email: '', password: '' });
         navigate('/');
       } else {

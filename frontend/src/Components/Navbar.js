@@ -1,26 +1,19 @@
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faBars,
-  faXmark,
-} from "@fortawesome/free-solid-svg-icons";
+import { faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import "../Styles/Navbar.css";
 import { Link } from "react-router-dom";
 import Login from "../Pages/Login";
 import Logout from "../Pages/Logout";
+import { useAuth } from "../store/auth";
 
 function Navbar() {
+  const { isLoggedIn } = useAuth();
   const [nav, setNav] = useState(false);
-  const [isLogin,setLogin]=useState(<Login/>)
-  const handleLoginClick = () => {
-    setLogin(isLogin === <Login /> ? <Logout /> : <Login />);
-  };
-  
+
   const openNav = () => {
     setNav(!nav);
   };
-
-
 
   return (
     <div className="navbar-section">
@@ -42,7 +35,6 @@ function Navbar() {
             Gym&Exer
           </Link>
         </li>
-
         <li>
           <Link to="/Medicine" className="navbar-links">
             Medicine
@@ -63,17 +55,30 @@ function Navbar() {
             Profile
           </Link>
         </li>
-
-      </ul>
-
-      <button
+        {isLoggedIn ? (
+          <li>
+            <button
         className="navbar-btn"
         type="button"
       >
-         <Link to="/login"  onClick={handleLoginClick} className="navbar-links">
-            Login 
-          </Link>
+        <Link to="/logout" className="navbar-links">
+              Logout
+            </Link>
       </button>
+          </li>
+        ) : (
+          <li>
+            <button
+        className="navbar-btn"
+        type="button"
+      >
+            <Link to="/login" className="navbar-links">
+              Login
+            </Link>
+            </button>
+          </li>
+        )}
+      </ul>
 
       {/* Mobile */}
       <div className={`mobile-navbar ${nav ? "open-nav" : ""}`}>
@@ -87,7 +92,6 @@ function Navbar() {
               Home
             </Link>
           </li>
-
           <li>
             <Link onClick={openNav} to="/Gym">
               Gym&Exer
@@ -108,6 +112,13 @@ function Navbar() {
               Reviews
             </Link>
           </li>
+          {isLoggedIn && (
+            <li>
+              <Link onClick={openNav} to="/logout">
+                Logout
+              </Link>
+            </li>
+          )}
         </ul>
       </div>
 
