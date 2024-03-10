@@ -49,7 +49,6 @@ function Login() {
         console.log('Login successful!');
         const res_data = await(response.json());
         console.log("res from server",res_data);
-        // localStorage.setItem("token",res_data.token);
         storetokeninLS(res_data.token);
         setFormData({ email: '', password: '' });
         navigate('/');

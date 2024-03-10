@@ -3,6 +3,7 @@ import useMediSearchClient from 'medisearch_client';
 import { v4 as uuidv4 } from 'uuid';
 
 import '../Styles/Medichat.css'
+
 function MediChat() {
   const [message, setMessage] = useState('');
   const [conversation, setConversation] = useState([]);
@@ -11,7 +12,8 @@ function MediChat() {
 
   useEffect(() => {
     setConversationId(uuidv4());
-  }, []);
+    setConversation([]); // Initialize conversation to empty array when component mounts
+  }, [message]); // Add message as a dependency
 
   // Helper function to update the last message in a conversation
   const updateLastMessage = (prevConversation, newMessage) => {
@@ -33,7 +35,7 @@ function MediChat() {
     llm_response: (payload) => {
       const lastMessage = conversation[conversation.length - 1];
 
-      if (lastMessage.sender === 'MediSearch') {
+      if (lastMessage && lastMessage.sender === 'MediSearch') {
         setConversation(prev => updateLastMessage(prev, payload.text));
       } else {
         setConversation(prev => addNewMessage(prev, payload.text));
@@ -90,7 +92,7 @@ function MediChat() {
             <strong
               style={{
                 color: item.sender === 'MediSearch' ? 'blue' : 'black',
-              }} e
+              }}
             >{item.sender}: </strong> <div className="newline-text">{item.message}</div>
           </div>
         ))}

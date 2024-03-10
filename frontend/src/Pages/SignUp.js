@@ -12,9 +12,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import { Link as RouterLink } from 'react-router-dom';
-// import { Axios } from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
 
 function SignUp() {
@@ -26,7 +24,8 @@ function SignUp() {
     allowExtraEmails: false,
   });
   const navigate = useNavigate();
-  const {storetokeninLS} = useAuth();
+  const { storetokeninLS } = useAuth();
+
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     const newValue = type === 'checkbox' ? checked : value;
@@ -39,8 +38,7 @@ function SignUp() {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(formData);
-    // You can perform further actions here, such as redirecting to a different page.
+
     try {
       const response = await fetch('http://localhost:5001/users/signup', {
         method: 'POST',
@@ -49,10 +47,10 @@ function SignUp() {
         },
         body: JSON.stringify(formData),
       });
-      console.log(response);
+
       const res_data = await response.json();
-      console.log(res_data);
-      storetokeninLS(res_data.token)
+      storetokeninLS(res_data.token);
+
       if (response.ok) {
         setFormData({
           firstName: '',
@@ -60,15 +58,13 @@ function SignUp() {
           email: '',
           password: '',
           allowExtraEmails: false,
-          
         });
         navigate('/login');
       } 
       
     } catch (error) {
-      console.log("registration",error)
+      console.log("registration", error);
     }
-    // You can perform further actions here, such as sending the data to a server.
   };
 
   const defaultTheme = createTheme();
