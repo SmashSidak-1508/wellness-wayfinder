@@ -26,7 +26,7 @@ function SignUp() {
     allowExtraEmails: false,
   });
   const navigate = useNavigate();
-  const localstorageinLS = useAuth();
+  const {storetokeninLS} = useAuth();
   const handleChange = (event) => {
     const { name, value, checked, type } = event.target;
     const newValue = type === 'checkbox' ? checked : value;
@@ -52,7 +52,7 @@ function SignUp() {
       console.log(response);
       const res_data = await response.json();
       console.log(res_data);
-      localstorageinLS(res_data.token)
+      storetokeninLS(res_data.token)
       if (response.ok) {
         setFormData({
           firstName: '',
