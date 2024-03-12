@@ -14,6 +14,7 @@ import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
+import { toast } from 'react-toastify';
 
 function SignUp() {
   const [formData, setFormData] = useState({
@@ -59,6 +60,7 @@ function SignUp() {
           password: '',
           allowExtraEmails: false,
         });
+        toast.success('Registration successful');
         navigate('/login');
       } 
       

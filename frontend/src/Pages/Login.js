@@ -15,6 +15,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { Link as RouterLink } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../store/auth';
+import { toast } from 'react-toastify';
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -52,8 +53,9 @@ function Login() {
         storetokeninLS(res_data.token);
         setFormData({ email: '', password: '' });
         navigate('/');
+        toast.success('login successful');
       } else {
-        console.error('Login failed.');
+        toast.error('Invalid Credentials');
       }
       console.log(response);
     }
@@ -63,7 +65,7 @@ function Login() {
 
     // Validations
     if (!email.trim()) {
-      alert('Email is required.');
+      toast.error('Email is required.');
       return;
     }
 
@@ -73,10 +75,10 @@ function Login() {
     //   return;
     // }
 
-    // if (password.length < 8) {
-    //   alert('Password must be at least 8 characters long.');
-    //   return;
-    // }
+    if (password.length < 5) {
+      toast.error('Password must be at least 6 characters long.');
+      return;
+    }
 
     // const specialCharRegex = /[!@#$%^&*()_+\-=[\]{};':"\\|,.<>/?]/;
     // if (!specialCharRegex.test(password)) {
