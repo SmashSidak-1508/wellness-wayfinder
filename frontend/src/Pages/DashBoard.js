@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import React from 'react';
 import {
   MDBCol,
@@ -16,54 +17,60 @@ import {
   MDBListGroup,
   MDBListGroupItem
 } from 'mdb-react-ui-kit';
+import Navbar from '../Components/Navbar';
 
 function DashBoard() {
+  const [image, setImage] = useState('');
+  const [file, setFile] = useState(null);
+
+  const handleImageChange = (event) => {
+    const selectedFile = event.target.files[0];
+    const reader = new FileReader();
+
+    reader.onload = () => {
+      if (reader.readyState === 2) {
+        setImage(reader.result);
+      }
+    };
+
+    if (selectedFile) {
+      reader.readAsDataURL(selectedFile);
+      setFile(selectedFile);
+    }
+  };
+
   return (
-    <section style={{ backgroundColor: '#eee' }}>
+    <>
+    <div>
+      <Navbar/>
+    </div>
+    <section  className="py-5" style={{ backgroundColor: '#eee' }}>
       <MDBContainer className="py-5">
         <MDBRow>
           <MDBCol lg="4">
             <MDBCard className="mb-4">
               <MDBCardBody className="text-center">
-                <MDBCardImage
-                  src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp"
-                  alt="avatar"
-                  className="rounded-circle"
-                  style={{ width: '150px' }}
-                  fluid />
+              <input
+                  type="file"
+                  accept="image/*"
+                  style={{ display: 'none' }}
+                  id="avatar-upload"
+                  onChange={handleImageChange}
+                />
+                <label htmlFor="avatar-upload">
+                  <MDBCardImage
+                    src={image || 'https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp'}
+                    alt="avatar"
+                    className="rounded-circle"
+                    style={{ width: '150px', cursor: 'pointer' }}
+                    fluid
+                  />
+                </label>
                 <p className="text-muted mb-1">Full Stack Developer</p>
                 <p className="text-muted mb-4">Bay Area, San Francisco, CA</p>
                 <div className="d-flex justify-content-center mb-2">
-                  <MDBBtn>Follow</MDBBtn>
-                  <MDBBtn outline className="ms-1">Message</MDBBtn>
+                  <MDBBtn onClick={handleImageChange}>UploadImage</MDBBtn>
                 </div>
-              </MDBCardBody>
-            </MDBCard>
-
-            <MDBCard className="mb-4 mb-lg-0">
-              <MDBCardBody className="p-0">
-                <MDBListGroup flush className="rounded-3">
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fas icon="globe fa-lg text-warning" />
-                    <MDBCardText>https://mdbootstrap.com</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="github fa-lg" style={{ color: '#333333' }} />
-                    <MDBCardText>mdbootstrap</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="twitter fa-lg" style={{ color: '#55acee' }} />
-                    <MDBCardText>@mdbootstrap</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="instagram fa-lg" style={{ color: '#ac2bac' }} />
-                    <MDBCardText>mdbootstrap</MDBCardText>
-                  </MDBListGroupItem>
-                  <MDBListGroupItem className="d-flex justify-content-between align-items-center p-3">
-                    <MDBIcon fab icon="facebook fa-lg" style={{ color: '#3b5998' }} />
-                    <MDBCardText>mdbootstrap</MDBCardText>
-                  </MDBListGroupItem>
-                </MDBListGroup>
               </MDBCardBody>
             </MDBCard>
           </MDBCol>
@@ -71,47 +78,62 @@ function DashBoard() {
             <MDBCard className="mb-4">
               <MDBCardBody>
                 <MDBRow>
-                  <MDBCol sm="3">
+                  <MDBCol sm="4">
                     <MDBCardText>Full Name</MDBCardText>
                   </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Johnatan Smith</MDBCardText>
+                  <MDBCol sm="4">
+                  <input type="text" className="form-control" placeholder="Full Name" />
+                  </MDBCol>
+                  <MDBCol sm="4">
+                  <MDBBtn>Edit</MDBBtn>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
-                  <MDBCol sm="3">
+                  <MDBCol sm="4">
                     <MDBCardText>Email</MDBCardText>
                   </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">example@example.com</MDBCardText>
+                  <MDBCol sm="4">
+                  <input type="email" className="form-control" placeholder="Email" />
+                  </MDBCol>
+                  <MDBCol sm="4">
+                  <MDBBtn>Edit</MDBBtn>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Phone</MDBCardText>
+                  <MDBCol sm="4">
+                    <MDBCardText>Mobile No</MDBCardText>
                   </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">(097) 234-5678</MDBCardText>
+                  <MDBCol sm="4">
+                  <input type="text" className="form-control" placeholder="Phone" />
                   </MDBCol>
-                </MDBRow>
-                <hr />
-                <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Mobile</MDBCardText>
-                  </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">(098) 765-4321</MDBCardText>
+                  <MDBCol sm="4">
+                  <MDBBtn>Edit</MDBBtn>
                   </MDBCol>
                 </MDBRow>
                 <hr />
                 <MDBRow>
-                  <MDBCol sm="3">
-                    <MDBCardText>Address</MDBCardText>
+                  <MDBCol sm="4">
+                    <MDBCardText>Adress</MDBCardText>
                   </MDBCol>
-                  <MDBCol sm="9">
-                    <MDBCardText className="text-muted">Bay Area, San Francisco, CA</MDBCardText>
+                  <MDBCol sm="4">
+                  <input type="text" className="form-control" placeholder="Address" />
+                  </MDBCol>
+                  <MDBCol sm="4">
+                  <MDBBtn>Edit</MDBBtn>
+                  </MDBCol>
+                </MDBRow>
+                <hr />
+                <MDBRow>
+                  <MDBCol sm="4">
+                    <MDBCardText>Gender</MDBCardText>
+                  </MDBCol>
+                  <MDBCol sm="4">
+                  <input type="Gender" className="form-control" placeholder="Gender" />
+                  </MDBCol>
+                  <MDBCol sm="4">
+                  <MDBBtn>Edit</MDBBtn>
                   </MDBCol>
                 </MDBRow>
               </MDBCardBody>
@@ -120,6 +142,7 @@ function DashBoard() {
         </MDBRow>
       </MDBContainer>
     </section>
+    </>
   );
 }
 

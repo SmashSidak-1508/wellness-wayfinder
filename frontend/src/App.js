@@ -19,7 +19,7 @@ import Logout from "./Pages/Logout";
 function App() {
   return (
     <div className="App">
-      <Router basename="/wellness-wayfinder">
+      <Router basename="/wellness-wayfinder"> 
       <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/Gym" element={<Gym />} />
