@@ -9,7 +9,6 @@ userRouter.post('/signup',signup)
 
 
 userRouter.post('/signin',signin)
-userRouter.get('/logout',jwtAuth,logout)
 
 module.exports=userRouter
 console.log("sample route file");

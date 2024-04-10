@@ -37,6 +37,11 @@ The frontend of the Wellness Wayfinder project is responsible for the user inter
 - **test**: Runs tests.
 - **eject**: Ejects the frontend configuration from create-react-app.
 
+### SCREENSHOTS
+### 1. Navbar
+![wellness-wayfinder image-1] (https://postimg.cc/QHK7VC56)
+
+
 ## Backend
 
 The backend of the Wellness Wayfinder project provides APIs for handling user authentication, data storage, and other backend functionalities. It utilizes Express.js and MongoDB for server-side logic and data storage, respectively.
