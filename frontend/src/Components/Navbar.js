@@ -32,12 +32,22 @@ function Navbar() {
         </li>
         <li>
           <Link to="/Gym" className="navbar-links">
-            Gym&Exer
+            Gym
+          </Link>
+        </li>
+        <li>
+        <Link to="https://exercise-visuals.vercel.app/" className="navbar-links">
+            Visuals
           </Link>
         </li>
         <li>
           <Link to="/Medicine" className="navbar-links">
             Medicine
+          </Link>
+        </li>
+        <li>
+          <Link to="https://wellness-wayfinder-12.streamlit.app/" className="navbar-links">
+            Diet
           </Link>
         </li>
         <li>
