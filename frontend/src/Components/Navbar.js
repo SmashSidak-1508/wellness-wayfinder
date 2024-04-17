@@ -36,7 +36,7 @@ function Navbar() {
           </Link>
         </li>
         <li>
-        <Link to="https://exercise-visuals.vercel.app/" className="navbar-links">
+        <Link to="https://wellnesswayfinder-visuals.vercel.app/" className="navbar-links">
             Visuals
           </Link>
         </li>
