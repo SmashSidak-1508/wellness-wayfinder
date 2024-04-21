@@ -8,7 +8,7 @@ const userRouter=express.Router();
 userRouter.post('/signup',signup)
 
 
-userRouter.post('/signin',signin)
+userRouter.post('/signin',jwtAuth,signin)
 
 module.exports=userRouter
 console.log("sample route file");

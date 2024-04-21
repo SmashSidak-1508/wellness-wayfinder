@@ -53,47 +53,48 @@ const signup = async (req, res) => {
 const signin = async (req, res) => {
     const { email, password } = req.body;
     if (!email || !password) {
-        return res.status(400).json({
-            success: false,
-            message: "Email and password are required"
-        });
+      return res.status(400).json({
+        success: false,
+        message: "Email and password are required"
+      });
     }
-
+  
     try {
-        const user = await userMode.findOne({ email }).select("+password");
-        if (!user || !(await bcrypt.compare(password, user.password))) {
-            return res.status(400).json({
-                success: false,
-                message: "Invalid credentials"
-            });
-        }
-
-        // Generate JWT token using user model method
-        const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-            expiresIn: process.env.JWT_EXPIRES_IN
-        });
-
-        user.password = undefined;
-
-        const cookieOption = {
-            maxAge: 24 * 60 * 60 * 1000, // 24hr
-            httpOnly: true // Not able to modify the cookie in the client side
-        };
-
-        res.cookie("token", token, cookieOption);
-        res.status(200).json({
-            success: true,
-            token: token,
-            data: user,
-            id: user._id.toString()
-        });
-    } catch (e) {
+      const user = await userMode.findOne({ email }).select("+password");
+      if (!user || !(await bcrypt.compare(password, user.password))) {
         return res.status(400).json({
-            success: false,
-            message: e.message
+          success: false,
+          message: "Invalid credentials"
         });
+      }
+  
+      // Generate JWT token using user model method
+      const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRES_IN
+      });
+  
+      user.password = undefined;
+  
+      const cookieOption = {
+        maxAge: 24 * 60 * 60 * 1000, // 24hr
+        httpOnly: true // Not able to modify the cookie in the client side
+      };
+  
+      res.cookie("token", token, cookieOption);
+      res.status(200).json({
+        success: true,
+        token: token,
+        data: { firstName: user.firstName, lastName: user.lastName, email: user.email },
+        id: user._id.toString()
+      });
+    } catch (e) {
+      return res.status(400).json({
+        success: false,
+        message: e.message
+      });
     }
-};
+  };
+  
 const logout = (req,res,next)=>{
     try {
         const cookieOption = {
