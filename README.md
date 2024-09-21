@@ -21,6 +21,56 @@
 ## Installation
 
 ### Prerequisites
+Navigate to the project directory:
+
+bash
+Copy code
+cd wellness-wayfinder
+Install dependencies:
+
+bash
+Copy code
+npm install
+Set up environment variables:
+
+Create a .env file in the root directory with the following variables:
+
+env
+Copy code
+MONGO_URI=your_mongodb_uri
+PORT=5000
+MEDICARE_API_KEY=your_medicare_api_key
+Run the app:
+
+bash
+Copy code
+npm run dev
+Open your browser and navigate to http://localhost:5000.
+
+Usage
+Nutrition Tracker: Input your dietary preferences and goals to receive personalized nutrition charts.
+Medical Assistance: Get quick access to healthcare information through the Medicare API integration.
+Track Progress: Visualize your fitness data with easy-to-understand charts.
+Contributing
+We welcome contributions! To contribute to Wellness Way Finder, follow these steps:
+
+Fork the repository.
+Create a new branch:
+bash
+Copy code
+git checkout -b feature-branch
+Make your changes.
+Commit your changes:
+bash
+Copy code
+git commit -m 'Add new feature'
+Push to your branch:
+bash
+Copy code
+git push origin feature-branch
+Open a pull request.
+License
+This project is licensed under the MIT License.
 
 Make sure you have the following installed on your system:
 
